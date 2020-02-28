@@ -12,6 +12,8 @@ import android.widget.PopupMenu;
 public class PlayerTwoSetShips extends AppCompatActivity implements View.OnClickListener{
     private PopupMenu popupMenu;
     private Button[][] buttons = new Button[10][10];
+    Board board = new Board();
+    public Ship ship;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,14 +49,42 @@ public class PlayerTwoSetShips extends AppCompatActivity implements View.OnClick
     }
 
     public void downOnClick(View v) {
-
+        if(ship == Ship.Carrier) {
+            //TODO set five spots down
+        }
+        else if(ship == Ship.Battleship) {
+            //TODO set four spots down
+        }
+        else if(ship == Ship.Cruiser) {
+            //TODO set three spots down
+        }
+        else if(ship == Ship.Submarine) {
+            //TODO set three spots down
+        }
+        else if(ship == Ship.Destroyer) {
+            //TODO set two spots down
+        }
     }
 
     public void rightOnClick(View v) {
-
+        if(ship == Ship.Carrier) {
+            //TODO set five spots right
+        }
+        else if(ship == Ship.Battleship) {
+            //TODO set four spots right
+        }
+        else if(ship == Ship.Cruiser) {
+            //TODO set three spots right
+        }
+        else if(ship == Ship.Submarine) {
+            //TODO set three spots right
+        }
+        else if(ship == Ship.Destroyer) {
+            //TODO set two spots right
+        }
     }
 
     public void resetOnClick(View v) {
-
+        board.emptyBoard();
     }
 }

@@ -24,15 +24,15 @@ public class Board {
             case Carrier:
                 shipSize = 5;
                 break;
-            case Destroyer:
-                shipSize = 2;
-                break;
             case Battleship:
                 shipSize = 4;
                 break;
             case Cruiser:
             case Submarine:
                 shipSize = 3;
+                break;
+            case Destroyer:
+                shipSize = 2;
                 break;
         }
         //Make sure they place it in a decent spot and no overlaps
@@ -73,7 +73,7 @@ public class Board {
         return true;
     }
 
-    public void EmptyBoard(){
+    public void emptyBoard(){
         // i mean it ^^^^
         for (int row = 0; row < 10; row++) {
             for (int col = 0; col < 10; col++) {
