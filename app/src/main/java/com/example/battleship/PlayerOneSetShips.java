@@ -47,4 +47,15 @@ public class PlayerOneSetShips extends AppCompatActivity implements View.OnClick
         startActivity(intent);
     }
 
+    public void downOnClick(View v) {
+
+    }
+
+    public void rightOnClick(View v) {
+
+    }
+
+    public void resetOnClick(View v) {
+
+    }
 }

@@ -22,7 +22,7 @@
             android:textSize="30sp" />
 
         <Button
-            android:id="@+id/button_done"
+            android:id="@+id/button_view_own"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/text_view"
@@ -37,6 +37,7 @@
             android:layout_alignParentStart="true"
             android:layout_marginStart="159dp"
             android:layout_marginTop="1dp"
+            android:onClick="resetOnClick"
             android:text="reset" />
 
         <Button
@@ -51,13 +52,14 @@
             android:text="exit" />
 
         <Button
-            android:id="@+id/button_down"
+            android:id="@+id/button_done"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/button_done"
+            android:layout_below="@+id/button_view_own"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="323dp"
+            android:onClick="downOnClick"
             android:text="down" />
 
         <Button
@@ -68,6 +70,7 @@
             android:layout_alignParentEnd="true"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="8dp"
+            android:onClick="rightOnClick"
             android:text="right" />
 
         <TextView

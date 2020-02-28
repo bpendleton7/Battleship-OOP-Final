@@ -18,4 +18,14 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this,PlayerOneSetShips.class);
         startActivity(intent);
     }
+
+    public void personVsComputerOnClick(View v) {
+        Intent intent = new Intent(this,PlayerOneSetShips.class);
+        startActivity(intent);
+    }
+
+    public void computerVsComputerOnClick(View v) {
+        Intent intent = new Intent(this,PlayerOnePlayScreen.class);
+        startActivity(intent);
+    }
 }
