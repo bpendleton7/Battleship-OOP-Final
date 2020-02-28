@@ -12,6 +12,7 @@ import android.widget.PopupMenu;
 public class PlayerOneSetShips extends AppCompatActivity implements View.OnClickListener{
     private PopupMenu popupMenu;
     private Button[][] buttons = new Button[10][10];
+    Board board = new Board();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
