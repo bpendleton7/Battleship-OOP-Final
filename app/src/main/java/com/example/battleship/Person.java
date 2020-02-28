@@ -9,9 +9,11 @@ public class Person extends Player {
         super(name, board);
     }
 
-//    @Override
-//    int userPlacePiece() {
-//        //battleshipView.getUserPlacement()   ?????
-//        return 0;
-//    }
+    @Override
+    protected boolean userPlacePiece(Ship s,String direction,int row,int col) {
+        return board.placeShip(s,direction,row,col);
+    }
+    public void attack(int row,int col){
+        board.checkForHit(row,col);
+    }
 }

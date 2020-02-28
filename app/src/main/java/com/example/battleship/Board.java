@@ -97,6 +97,9 @@ public class Board {
         if(board[row][col] == 4){
             board[row][col] = 2;
         }
+        else if(board[row][col]==0){
+            board[row][col] = 1;
+        }
         return board[row][col] == 4;
     }
 

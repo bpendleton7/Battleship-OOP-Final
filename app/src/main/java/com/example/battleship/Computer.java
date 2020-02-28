@@ -18,12 +18,40 @@ public class Computer extends Player {
         super(name, board);
     }
 
-//    @Override
-//    int userPlacePiece() {
-//        Random rand = new Random();
-//        //use rand to generate random number of computer placement
-//        return 0;
-//    }
+    public void placeShips(){
+        //Booleans ensure that the ship is placed;
+        boolean placeCarrier = false;
+        boolean placeBattleship = false;
+        boolean placeCruiser = false;
+        boolean placeSub = false;
+        boolean placeDestroyer = false;
+        //The while loops check to see if it is placed and if not selects a direction and calls the helper method.
+        while(!placeCarrier){
+            String direction = gen.nextInt(2) == 0 ? "down" : "right";
+            placeCarrier = placeShipsHelper(Ship.Carrier, direction);
+        }
+        while(!placeBattleship){
+            String direction = gen.nextInt(2) == 0 ? "down" : "right";
+            placeBattleship = placeShipsHelper(Ship.Battleship, direction);
+        }
+        while(!placeCruiser){
+            String direction = gen.nextInt(2) == 0 ? "down" : "right";
+            placeCruiser = placeShipsHelper(Ship.Cruiser, direction);
+        }
+        while(!placeSub){
+            String direction = gen.nextInt(2) == 0 ? "down" : "right";
+            placeSub = placeShipsHelper(Ship.Submarine, direction);
+        }
+        while(!placeDestroyer){
+            String direction = gen.nextInt(2) == 0 ? "down" : "right";
+            placeDestroyer = placeShipsHelper(Ship.Destroyer, direction);
+        }
+    }
+
+    private boolean placeShipsHelper(Ship ship,String direction){
+        //Generates a row and column and then calls the board place method.
+        return board.placeShip(ship,direction,gen.nextInt(10),gen.nextInt(10));
+    }
 
     public void cpuAttack(){
         if(lastAttackHit){
