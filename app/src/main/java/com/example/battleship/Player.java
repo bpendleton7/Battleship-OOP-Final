@@ -17,6 +17,10 @@ public class Player {
         return name;
     }
 
+    public void takeTurn(int row,int col){
+        board.checkForHit(row,col);
+    }
+
     public void setName(String name) {
         if(name == null || name.isEmpty()){
             throw new IllegalArgumentException("Invalid user name");

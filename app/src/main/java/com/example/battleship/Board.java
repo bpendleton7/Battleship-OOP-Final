@@ -1,7 +1,7 @@
 package com.example.battleship;
 
 public class Board {
-
+    //0 - empty | 1 - miss | 2 - hit | 3 - sink | 4 - ship
     //setting up the basic board in a 10x10
     int[][] board = new int[][]{
             {0,0,0,0,0,0,0,0,0,0},
@@ -43,7 +43,7 @@ public class Board {
                 //for loop to place ship while making sure it doesn't overlap
                 for (int i = 0; i < shipSize; i++) {
                     if (board[row][column] == 0){
-                        board[row][column] = 5;
+                        board[row][column] = 4;
                         row += intDirection;
                     }
                     else{
@@ -57,7 +57,7 @@ public class Board {
                 intDirection = direction.equals(("right")) ? 1 :-1;
                 for (int i = 0; i<shipSize;i++){
                     if (board[row][column] == 0){
-                        board[row][column] = 5;
+                        board[row][column] = 4;
                         column += intDirection;
                     }
                     else{
@@ -93,5 +93,10 @@ public class Board {
         return returnable;
     }
 
+    public void checkForHit(int row, int col){
+        if(board[row][col] == 4){
+            board[row][col] = 2;
+        }
+    }
 
 }

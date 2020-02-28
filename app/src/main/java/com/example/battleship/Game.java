@@ -1,11 +1,11 @@
 package com.example.battleship;
 
 public class Game {
-    Player[] players = new Player[2];
+    private Player[] players = new Player[2];
     int turn = 0;
 
     public void turns(int row,int column) {
-        // players[turn].takeTurn(row,column);
+        players[turn].takeTurn(row,column);
         if (!checkForWin()){
             turn = turn == 1 ? 0 : 1;
         }

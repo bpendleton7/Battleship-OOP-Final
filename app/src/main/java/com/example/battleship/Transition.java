@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 
 public class Transition extends AppCompatActivity {
+    //Transition screen
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
