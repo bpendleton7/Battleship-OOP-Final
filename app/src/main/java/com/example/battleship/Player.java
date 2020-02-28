@@ -17,8 +17,8 @@ public class Player {
         return name;
     }
 
-    public void takeTurn(int row,int col){
-        board.checkForHit(row,col);
+    public boolean takeTurn(int row,int col){
+        return board.checkForHit(row,col);
     }
 
     public void setName(String name) {

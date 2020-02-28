@@ -93,10 +93,11 @@ public class Board {
         return returnable;
     }
 
-    public void checkForHit(int row, int col){
+    public boolean checkForHit(int row, int col){
         if(board[row][col] == 4){
             board[row][col] = 2;
         }
+        return board[row][col] == 4;
     }
 
 }
