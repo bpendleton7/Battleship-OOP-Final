@@ -93,14 +93,17 @@ public class Board {
         return returnable;
     }
 
-    public boolean checkForHit(int row, int col){
+    public String checkForHit(int row, int col){
         if(board[row][col] == 4){
             board[row][col] = 2;
         }
         else if(board[row][col]==0){
             board[row][col] = 1;
         }
-        return board[row][col] == 4;
+        else if(board[row][col] == 1){
+            return "AlreadyHit";
+        }
+        return board[row][col] == 4 ? "true":"false";
     }
 
 }

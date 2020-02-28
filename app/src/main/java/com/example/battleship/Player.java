@@ -17,7 +17,7 @@ public class Player {
         return name;
     }
 
-    public boolean takeTurn(int row,int col){
+    public String takeTurn(int row,int col){
         return board.checkForHit(row,col);
     }
 

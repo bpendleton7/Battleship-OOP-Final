@@ -61,28 +61,28 @@ public class Computer extends Player {
             switch (tries){
                 case 0:
                     tries++;
-                    if(takeTurn(row + 1,col)){
+                    if(determineIfHit(row + 1,col)){
                         row++;
                         tries = 0;
                     }
                     break;
                 case 1:
                     tries++;
-                    if(takeTurn(row -1,col)){
+                    if(determineIfHit(row -1,col)){
                         row--;
                         tries = 1;
                     }
                     break;
                 case 2:
                     tries++;
-                    if(takeTurn(row,col + 1)){
+                    if(determineIfHit(row,col + 1)){
                         col++;
                         tries = 2;
                     }
                     break;
                 case 3:
                     tries++;
-                    if(takeTurn(row,col -1)){
+                    if(determineIfHit(row,col -1)){
                         col--;
                         tries = 3;
                     }
@@ -94,9 +94,22 @@ public class Computer extends Player {
             }
         }
         else{
+            //if there wasn't a previous hit or no longer a good hit next to it then generate new space;
+            //0's are place holders as they will be random in the next method
+            determineIfHit(0,0);
+        }
+    }
+
+    public boolean determineIfHit(int col,int row){
+        //makes sure the cpu doesn't attack the same spot twice.
+        boolean attacked = false;
+        String tempHolder = "";
+        while (!attacked){
             col = gen.nextInt(10);
             row = gen.nextInt(10);
-            lastAttackHit = takeTurn(row, col);
+            tempHolder = takeTurn(row,col);
+            attacked = !tempHolder.equals("AlreadyHit");
         }
+        return tempHolder.equals("true");
     }
 }
