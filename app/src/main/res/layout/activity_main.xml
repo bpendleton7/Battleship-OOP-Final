@@ -9,7 +9,7 @@
 
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/txt_player1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -24,7 +24,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/txt_player2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -35,7 +35,7 @@
         android:textColorHint="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_player1" />
 
     <Button
         android:id="@+id/button"
