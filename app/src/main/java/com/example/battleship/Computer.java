@@ -11,6 +11,7 @@ public class Computer extends Player {
     int row = 0;
     int tries = 0;
 
+
     public Computer() {
     }
 
