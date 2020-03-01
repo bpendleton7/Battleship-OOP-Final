@@ -4,6 +4,32 @@ public class Game {
     public Player[] players = new Player[2];
     int turn = 0;
 
+    public Game(){}
+
+    public Game(String type){
+        //this should ensure that players will no longer be null and put right player types.
+        Player player1 = new Player();
+        Player player2 = new Player();
+        switch(type){
+            case "PvP":
+                break;
+            case "PvC":
+                player1 = new Person();
+                player2 = new Computer();
+                break;
+            case "CvC":
+                player1 = new Computer();
+                player2 = new Computer();
+                break;
+        }
+        setPlayers(player1,player2);
+    }
+
+    public void setPlayers(Player one, Player two){
+        players[0] = one;
+        players[1] = two;
+    }
+
     public void turns(int row,int column) {
         players[turn].takeTurn(row,column);
         if (!checkForWin()){
