@@ -18,6 +18,7 @@ public class PlayerOneSetShips extends AppCompatActivity implements View.OnClick
     private Button[][] buttons = new Button[10][10];
     Board board = new Board();
     public Ship ship;
+    private int clickCounter = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +42,26 @@ public class PlayerOneSetShips extends AppCompatActivity implements View.OnClick
 //        startActivity(new Intent(this,Pop.class));
         if (((Button) v).getText().toString().equals("")) {
             ((Button) v).setBackgroundColor(Color.GRAY);
+            clickCounter++;
+            shipBasedOnClickCounter();
+        }
+    }
+
+    public void shipBasedOnClickCounter() {
+        if(clickCounter == 0) {
+            listedShip.setText("Carrier");
+        }
+        else if(clickCounter == 1) {
+            listedShip.setText("Battleship");
+        }
+        else if(clickCounter == 2) {
+            listedShip.setText("Cruiser");
+        }
+        else if(clickCounter == 3) {
+            listedShip.setText("Submarine");
+        }
+        else if(clickCounter == 4) {
+            listedShip.setText("Destroyer");
         }
     }
 
@@ -92,6 +113,7 @@ public class PlayerOneSetShips extends AppCompatActivity implements View.OnClick
 
     public void resetOnClick(View v) {
         board.emptyBoard();
+        clickCounter = 0;
     }
 
     public void initGuiComponents(){
