@@ -7,17 +7,23 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.PopupMenu;
+import android.widget.TextView;
 
 public class PlayerOneSetShips extends AppCompatActivity implements View.OnClickListener{
-    private PopupMenu popupMenu;
+    private TextView header, listedShip;
     private Button[][] buttons = new Button[10][10];
     Board board = new Board();
+    public Ship ship;
+    Game game = new Game();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_player_one_set_ships);
+        initGuiComponents();
+        //header.setText(game.players[0].getName() + " set your ships");
 
         for(int row = 0; row < 10; row++) {
             for(int col = 0; col < 10; col++) {
@@ -48,14 +54,47 @@ public class PlayerOneSetShips extends AppCompatActivity implements View.OnClick
     }
 
     public void downOnClick(View v) {
-
+        if(ship == Ship.Carrier) {
+            //TODO set five spots down
+        }
+        else if(ship == Ship.Battleship) {
+            //TODO set four spots down
+        }
+        else if(ship == Ship.Cruiser) {
+            //TODO set three spots down
+        }
+        else if(ship == Ship.Submarine) {
+            //TODO set three spots down
+        }
+        else if(ship == Ship.Destroyer) {
+            //TODO set two spots down
+        }
     }
 
     public void rightOnClick(View v) {
-
+        if(ship == Ship.Carrier) {
+            //TODO set five spots right
+        }
+        else if(ship == Ship.Battleship) {
+            //TODO set four spots right
+        }
+        else if(ship == Ship.Cruiser) {
+            //TODO set three spots right
+        }
+        else if(ship == Ship.Submarine) {
+            //TODO set three spots right
+        }
+        else if(ship == Ship.Destroyer) {
+            //TODO set two spots right
+        }
     }
 
     public void resetOnClick(View v) {
+        board.emptyBoard();
+    }
 
+    public void initGuiComponents(){
+        header = findViewById(R.id.txt_header);
+        listedShip = findViewById(R.id.txt_ship);
     }
 }

@@ -25,7 +25,7 @@
             android:id="@+id/button_view_own"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/text_view"
+            android:layout_below="@+id/txt_header"
             android:onClick="doneOnClick"
             android:text="done" />
 
@@ -33,7 +33,7 @@
             android:id="@+id/button_reset"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/text_view"
+            android:layout_below="@+id/txt_header"
             android:layout_alignParentStart="true"
             android:layout_marginStart="159dp"
             android:layout_marginTop="1dp"
@@ -44,7 +44,7 @@
             android:id="@+id/button_exit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/text_view"
+            android:layout_below="@+id/txt_header"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="1dp"
             android:layout_marginEnd="8dp"
@@ -74,7 +74,7 @@
             android:text="right" />
 
         <TextView
-            android:id="@+id/text_ship"
+            android:id="@+id/txt_ship"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/button_reset"

@@ -10,7 +10,7 @@ import android.widget.EditText;
 public class MainActivity extends AppCompatActivity {
 
     private EditText p1Name, p2Name;
-    Game game;
+    public Game game;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,28 +26,28 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void personVsPersonOnClick(View v) {
-        game = new Game("PvP");
-        game.players[0].setName(p1Name.getText().toString());
-        game.players[1].setName(p2Name.getText().toString());
+        setPlayerNames();
         Intent intent = new Intent(this,PlayerOneSetShips.class);
         startActivity(intent);
     }
 
     public void personVsComputerOnClick(View v) {
-        game = new Game("PvC");
-        game.players[0].setName(p1Name.getText().toString());
-        game.players[1].setName(p2Name.getText().toString());
+        setPlayerNames();
         Intent intent = new Intent(this,PlayerOneSetShips.class);
         startActivity(intent);
     }
 
     public void computerVsComputerOnClick(View v) {
-        //Initializing the game variable at the top of each on click to determine which player type
-        // to add to the list to avoid the null issue;
-        game = new Game("CvC");
-        game.players[0].setName(p1Name.getText().toString());
-        game.players[1].setName(p2Name.getText().toString());
+        setPlayerNames();
         Intent intent = new Intent(this,PlayerOnePlayScreen.class);
         startActivity(intent);
+
+    }
+
+    public void setPlayerNames(){
+        String p1NewName = p1Name.getText().toString();
+        String p2NewName = p2Name.getText().toString();
+        game.players[0].setName(p1NewName);
+        game.players[1].setName(p2NewName);
     }
 }
