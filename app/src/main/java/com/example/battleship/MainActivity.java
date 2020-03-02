@@ -27,16 +27,16 @@ public class MainActivity extends AppCompatActivity {
 
     public void personVsPersonOnClick(View v) {
         game = new Game("PvP");
-        game.players[0].setName(p1Name.toString());
-        game.players[1].setName(p2Name.toString());
+        game.players[0].setName(p1Name.getText().toString());
+        game.players[1].setName(p2Name.getText().toString());
         Intent intent = new Intent(this,PlayerOneSetShips.class);
         startActivity(intent);
     }
 
     public void personVsComputerOnClick(View v) {
         game = new Game("PvC");
-        game.players[0].setName(p1Name.toString());
-        game.players[1].setName(p2Name.toString());
+        game.players[0].setName(p1Name.getText().toString());
+        game.players[1].setName(p2Name.getText().toString());
         Intent intent = new Intent(this,PlayerOneSetShips.class);
         startActivity(intent);
     }
@@ -45,8 +45,8 @@ public class MainActivity extends AppCompatActivity {
         //Initializing the game variable at the top of each on click to determine which player type
         // to add to the list to avoid the null issue;
         game = new Game("CvC");
-        game.players[0].setName(p1Name.toString());
-        game.players[1].setName(p2Name.toString());
+        game.players[0].setName(p1Name.getText().toString());
+        game.players[1].setName(p2Name.getText().toString());
         Intent intent = new Intent(this,PlayerOnePlayScreen.class);
         startActivity(intent);
     }
