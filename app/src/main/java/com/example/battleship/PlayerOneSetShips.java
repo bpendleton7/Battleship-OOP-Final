@@ -11,19 +11,20 @@ import android.widget.EditText;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 
+import static com.example.battleship.MainActivity.game;
+
 public class PlayerOneSetShips extends AppCompatActivity implements View.OnClickListener{
     private TextView header, listedShip;
     private Button[][] buttons = new Button[10][10];
     Board board = new Board();
     public Ship ship;
-    Game game = new Game();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_player_one_set_ships);
         initGuiComponents();
-        //header.setText(game.players[0].getName() + " set your ships");
+        header.setText(game.players[0].getName() + ": set your ships");
 
         for(int row = 0; row < 10; row++) {
             for(int col = 0; col < 10; col++) {

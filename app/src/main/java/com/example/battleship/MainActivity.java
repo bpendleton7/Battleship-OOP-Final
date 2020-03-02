@@ -10,7 +10,7 @@ import android.widget.EditText;
 public class MainActivity extends AppCompatActivity {
 
     private EditText p1Name, p2Name;
-    public Game game;
+    static Game game;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,18 +26,23 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void personVsPersonOnClick(View v) {
+        game = new Game("PvP");
         setPlayerNames();
         Intent intent = new Intent(this,PlayerOneSetShips.class);
         startActivity(intent);
     }
 
     public void personVsComputerOnClick(View v) {
+        game = new Game("PvC");
         setPlayerNames();
         Intent intent = new Intent(this,PlayerOneSetShips.class);
         startActivity(intent);
     }
 
     public void computerVsComputerOnClick(View v) {
+        //Initializing the game variable at the top of each on click to determine which player type
+        // to add to the list to avoid the null issue;
+        game = new Game("CvC");
         setPlayerNames();
         Intent intent = new Intent(this,PlayerOnePlayScreen.class);
         startActivity(intent);
@@ -49,5 +54,6 @@ public class MainActivity extends AppCompatActivity {
         String p2NewName = p2Name.getText().toString();
         game.players[0].setName(p1NewName);
         game.players[1].setName(p2NewName);
+        System.out.println(game.players[1].getName());
     }
 }

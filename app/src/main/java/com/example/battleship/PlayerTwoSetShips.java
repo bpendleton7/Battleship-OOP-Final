@@ -8,9 +8,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.PopupMenu;
+import android.widget.TextView;
+
+import static com.example.battleship.MainActivity.game;
 
 public class PlayerTwoSetShips extends AppCompatActivity implements View.OnClickListener{
-    private PopupMenu popupMenu;
+    private TextView header, listedShip;
     private Button[][] buttons = new Button[10][10];
     Board board = new Board();
     public Ship ship;
@@ -19,6 +22,8 @@ public class PlayerTwoSetShips extends AppCompatActivity implements View.OnClick
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_player_two_set_ships);
+        initGuiComponents();
+        header.setText(game.players[1].getName() + ": set your ships");
 
         for(int row = 0; row < 10; row++) {
             for(int col = 0; col < 10; col++) {
@@ -86,5 +91,10 @@ public class PlayerTwoSetShips extends AppCompatActivity implements View.OnClick
 
     public void resetOnClick(View v) {
         board.emptyBoard();
+    }
+
+    public void initGuiComponents(){
+        header = findViewById(R.id.txt_header);
+        listedShip = findViewById(R.id.txt_ship);
     }
 }
