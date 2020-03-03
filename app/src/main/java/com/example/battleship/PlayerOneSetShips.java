@@ -17,8 +17,7 @@ public class PlayerOneSetShips extends AppCompatActivity implements View.OnClick
     private TextView header, listedShip;
     private Button[][] buttons = new Button[10][10];
     Board board = new Board();
-    public Ship ship;
-    private int clickCounter = 0;
+    String direction = "right";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,29 +39,96 @@ public class PlayerOneSetShips extends AppCompatActivity implements View.OnClick
     @Override
     public void onClick(View v) {
 //        startActivity(new Intent(this,Pop.class));
-        if (((Button) v).getText().toString().equals("")) {
-            ((Button) v).setBackgroundColor(Color.GRAY);
-            clickCounter++;
-            shipBasedOnClickCounter();
+        System.out.println(v.getTag());
+        String[] id = v.getTag().toString().split("_");
+        int initialRow = Integer.parseInt(id[0]);
+        int initialCol = Integer.parseInt(id[1]);
+        String currentShip = listedShip.getText().toString();
+        if(currentShip.equals("All Ships Place please hit done")){
+
+        }
+        else{
+            try {
+                int shipSize = getShipSize(currentShip);
+                int counter = 0;
+                boolean placingShip = game.players[0].userPlacePiece(Ship.valueOf(
+                        currentShip), direction, initialRow, initialCol);
+                if (!placingShip) {
+                    if (direction.equals("down")) {
+                        for (int row = initialRow; row < initialRow + shipSize; row++) {
+                            if (buttons[row][initialCol].getText().toString().equals("")) {
+
+                            }
+                            else{
+                                throw new ArrayIndexOutOfBoundsException();
+                            }
+
+                        }
+                        for (int row = initialRow; row < initialRow + shipSize; row++) {
+                            buttons[row][initialCol].setBackgroundColor(Color.GRAY);
+                            buttons[row][initialCol].setText(" ");
+                        }
+                    } else if (direction.equals("right")) {
+                        for (int col = initialCol; col < initialCol + shipSize; col++) {
+                            if (buttons[initialRow][col].getText().toString().equals("")) {
+
+                            }
+                            else{
+                                throw new ArrayIndexOutOfBoundsException();
+                            }
+                        }
+                        for (int col = initialCol; col < initialCol + shipSize; col++) {
+                            buttons[initialRow][col].setBackgroundColor(Color.GRAY);
+                            buttons[initialRow][col].setText(" ");
+                        }
+                    }
+                    placeNextShip(currentShip);
+                }
+            }
+            catch (ArrayIndexOutOfBoundsException ex){
+
+            }
         }
     }
 
-    public void shipBasedOnClickCounter() {
-        if(clickCounter == 0) {
-            listedShip.setText("Carrier");
+    private void placeNextShip(String ship) {
+        switch(ship){
+            case "Carrier":
+                listedShip.setText("Battleship");
+                break;
+            case "Battleship" :
+                listedShip.setText("Cruiser");
+                break;
+            case "Cruiser":
+                listedShip.setText("Submarine");
+                break;
+            case "Submarine":
+                listedShip.setText("Destroyer");
+                break;
+            case "Destroyer":
+                listedShip.setText("All Ships Place please hit done");
+                break;
         }
-        else if(clickCounter == 1) {
-            listedShip.setText("Battleship");
+    }
+
+    private int getShipSize(String currentShip) {
+        int shipSize = 0;
+        switch(currentShip){
+            case "Carrier":
+                shipSize = 5;
+                break;
+            case "Battleship" :
+                shipSize = 4;
+                break;
+            case "Cruiser":
+            case "Submarine":
+                shipSize = 3;
+                break;
+            case "Destroyer":
+                shipSize = 2;
+                break;
         }
-        else if(clickCounter == 2) {
-            listedShip.setText("Cruiser");
-        }
-        else if(clickCounter == 3) {
-            listedShip.setText("Submarine");
-        }
-        else if(clickCounter == 4) {
-            listedShip.setText("Destroyer");
-        }
+        return shipSize;
     }
 
     public void doneOnClick(View v) {
@@ -76,44 +142,15 @@ public class PlayerOneSetShips extends AppCompatActivity implements View.OnClick
     }
 
     public void downOnClick(View v) {
-        if(ship == Ship.Carrier) {
-            //TODO set five spots down
-        }
-        else if(ship == Ship.Battleship) {
-            //TODO set four spots down
-        }
-        else if(ship == Ship.Cruiser) {
-            //TODO set three spots down
-        }
-        else if(ship == Ship.Submarine) {
-            //TODO set three spots down
-        }
-        else if(ship == Ship.Destroyer) {
-            //TODO set two spots down
-        }
+       direction = "down";
     }
 
     public void rightOnClick(View v) {
-        if(ship == Ship.Carrier) {
-            //TODO set five spots right
-        }
-        else if(ship == Ship.Battleship) {
-            //TODO set four spots right
-        }
-        else if(ship == Ship.Cruiser) {
-            //TODO set three spots right
-        }
-        else if(ship == Ship.Submarine) {
-            //TODO set three spots right
-        }
-        else if(ship == Ship.Destroyer) {
-            //TODO set two spots right
-        }
+        direction = "right";
     }
 
     public void resetOnClick(View v) {
         board.emptyBoard();
-        clickCounter = 0;
     }
 
     public void initGuiComponents(){

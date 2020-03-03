@@ -44,7 +44,7 @@ public class Board {
                 for (int i = 0; i < shipSize; i++) {
                     if (board[row][column] == 0){
                         board[row][column] = 4;
-                        row += intDirection;
+                        column += intDirection;
                     }
                     else{
                         //if it over laps then the ship is not placed
@@ -58,7 +58,7 @@ public class Board {
                 for (int i = 0; i<shipSize;i++){
                     if (board[row][column] == 0){
                         board[row][column] = 4;
-                        column += intDirection;
+                        row += intDirection;
                     }
                     else{
                         //if it over laps then the ship is not placed
