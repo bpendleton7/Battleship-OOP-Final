@@ -105,5 +105,4 @@ public class Board {
         }
         return board[row][col] == 4 ? "true":"false";
     }
-
 }

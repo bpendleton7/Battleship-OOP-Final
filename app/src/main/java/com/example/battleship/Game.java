@@ -2,7 +2,10 @@ package com.example.battleship;
 
 public class Game {
     public Player[] players = new Player[2];
-    int turn = 0;
+    private int turn = 0;
+    public Board board;
+    public PlayerOneSetShips playerOneSetShips;
+    public PlayerTwoSetShips playerTwoSetShips;
 
     public Game(){}
 
@@ -25,7 +28,7 @@ public class Game {
         setPlayers(player1,player2);
     }
 
-    public void setPlayers(Player one, Player two){
+    private void setPlayers(Player one, Player two){
         players[0] = one;
         players[1] = two;
     }
@@ -38,8 +41,7 @@ public class Game {
 
     }
 
-    public boolean checkForWin(){
-        int otherPlayer = turn == 1 ? 0 : 1;
+    private boolean checkForWin(){
         int hitCounter = 0;
         int[][] winBoardCheck = new int[10][10];
         for (int row = 0; row < 10; row++) {
@@ -59,5 +61,28 @@ public class Game {
             }
         }
         return hitCounter == 17;
+    }
+
+
+
+    //Attempting to update board class when user clicks button in the GUI
+    //Not sure if this would properly update both boards... ?
+    public void updatePlayerOneBoard(){
+        for(int row = 0; row < 10; row++){
+            for (int col = 0; col < 10; col++){
+
+                playerOneSetShips.board.board = board.board;
+                //playerOneSetShips.buttons = board.board;
+            }
+        }
+    }
+
+    public void updatePlayerTwoBoard(){
+        for(int row = 0; row < 10; row++){
+            for (int col = 0; col < 10; col++){
+                playerTwoSetShips.board.board = board.board;
+                //playerTwoSetShips.buttons= board.board;
+            }
+        }
     }
 }
