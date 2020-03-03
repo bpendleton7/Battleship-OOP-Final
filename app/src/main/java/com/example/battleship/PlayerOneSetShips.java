@@ -132,6 +132,7 @@ public class PlayerOneSetShips extends AppCompatActivity implements View.OnClick
     }
 
     public void doneOnClick(View v) {
+        //Set different intents for PVP, PVC, and CVC
         Intent intent = new Intent(this,PlayerTwoSetShips.class);
         startActivity(intent);
     }

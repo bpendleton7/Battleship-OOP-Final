@@ -3,20 +3,36 @@ package com.example.battleship;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.res.AssetFileDescriptor;
+import android.content.res.AssetManager;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
 
     private EditText p1Name, p2Name;
     static Game game;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initGuiComponents();
+        try {
+            audio();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
     }
 
     public void initGuiComponents(){
@@ -65,5 +81,17 @@ public class MainActivity extends AppCompatActivity {
             game.players[1].setName(p2NewName);
         }
         System.out.println(game.players[1].getName());
+    }
+
+
+    //audio still needs to be worked on
+    public void audio() throws IOException {
+        String mp3File = "raw/pirates.mp3";
+        AssetManager assetMan = getAssets();
+        MediaPlayer media = new MediaPlayer();
+        FileInputStream mp3Stream = assetMan.openFd(mp3File).createInputStream();
+        media.setDataSource(mp3Stream.getFD());
+        media.prepare();
+        media.start();
     }
 }
