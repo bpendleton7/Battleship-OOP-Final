@@ -26,8 +26,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/txt_header"
+            android:backgroundTint="#03A9F4"
             android:onClick="doneOnClick"
-            android:text="done" />
+            android:text="done"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/button_reset"
@@ -37,8 +39,10 @@
             android:layout_alignParentStart="true"
             android:layout_marginStart="159dp"
             android:layout_marginTop="1dp"
+            android:backgroundTint="#03A9F4"
             android:onClick="resetOnClick"
-            android:text="reset" />
+            android:text="reset"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/button_exit"
@@ -48,19 +52,23 @@
             android:layout_alignParentEnd="true"
             android:layout_marginTop="1dp"
             android:layout_marginEnd="8dp"
+            android:backgroundTint="#03A9F4"
             android:onClick="exitOnClick"
-            android:text="exit" />
+            android:text="exit"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/button_done"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/button_view_own"
-            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="1dp"
             android:layout_marginTop="10dp"
-            android:layout_marginEnd="323dp"
+            android:backgroundTint="#03A9F4"
             android:onClick="downOnClick"
-            android:text="down" />
+            android:text="down"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/button_right"
@@ -70,17 +78,21 @@
             android:layout_alignParentEnd="true"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="8dp"
+            android:backgroundTint="#03A9F4"
             android:onClick="rightOnClick"
-            android:text="right" />
+            android:text="right"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/txt_ship"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/button_reset"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="157dp"
-            android:layout_marginTop="13dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="5dp"
+            android:layout_toStartOf="@+id/button_right"
+            android:layout_toEndOf="@+id/button_done"
             android:text="Carrier"
             android:textAlignment="center"
             android:textColor="#ffffff"
