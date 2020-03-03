@@ -52,8 +52,18 @@ public class MainActivity extends AppCompatActivity {
     public void setPlayerNames(){
         String p1NewName = p1Name.getText().toString();
         String p2NewName = p2Name.getText().toString();
-        game.players[0].setName(p1NewName);
-        game.players[1].setName(p2NewName);
+        if(p1NewName.isEmpty() || p1NewName.equals(" ")){
+            game.players[0].setName("Player 1");
+        }
+        else {
+            game.players[0].setName(p1NewName);
+        }
+        if(p2NewName.isEmpty() || p2NewName.equals(" ")){
+            game.players[1].setName("Player 2");
+        }
+        else {
+            game.players[1].setName(p2NewName);
+        }
         System.out.println(game.players[1].getName());
     }
 }

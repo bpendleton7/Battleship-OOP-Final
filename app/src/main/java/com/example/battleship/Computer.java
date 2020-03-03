@@ -4,12 +4,12 @@ import java.util.Random;
 
 public class Computer extends Player {
 
-    Random gen = new Random();
+    private Random gen = new Random();
     //boolean to determine random or
-    boolean lastAttackHit = false;
-    int col = 0;
-    int row = 0;
-    int tries = 0;
+    private boolean lastAttackHit = false;
+    private int col = 0;
+    private int row = 0;
+    private int tries = 0;
 
 
     public Computer() {
