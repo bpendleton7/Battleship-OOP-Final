@@ -168,6 +168,8 @@ public class PlayerTwoSetShips extends AppCompatActivity implements View.OnClick
         direction = "right";
     }
 
+
+
     public void resetOnClick(View v) {
         board.emptyBoard();
         clickCounter = 0;
