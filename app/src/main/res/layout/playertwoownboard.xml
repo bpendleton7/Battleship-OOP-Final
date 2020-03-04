@@ -12,13 +12,13 @@
         android:layout_height="50sp">
 
 
-    <Button
-        android:id="@+id/button_view_own"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#03A9F4"
-        android:onClick="viewPlayer2BoardOnClick"
-        android:text="Return" />
+        <Button
+            android:id="@+id/button_view_own"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#03A9F4"
+            android:onClick="returnOnClick"
+            android:text="Return" />
 
     </RelativeLayout>
 

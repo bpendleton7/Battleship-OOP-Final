@@ -14,8 +14,14 @@ public class PlayerOnePlayScreen extends AppCompatActivity {
         setContentView(R.layout.activity_player_one_play_screen);
     }
 
+    //View own board with contentview
     public void viewPlayer1BoardOnClick(View v) {
         setContentView(R.layout.playeroneownboard);
+    }
+
+    //Return to play screen
+    public void returnOnClick(View v) {
+        setContentView(R.layout.activity_player_one_play_screen);
     }
 
     public void doneOnClick(View v) {

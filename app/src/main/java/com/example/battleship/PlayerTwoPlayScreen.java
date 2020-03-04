@@ -14,8 +14,14 @@ public class PlayerTwoPlayScreen extends AppCompatActivity {
         setContentView(R.layout.activity_player_two_play_screen);
     }
 
+    //View own board with contentview
     public void viewPlayer2BoardOnClick(View v) {
         setContentView(R.layout.playertwoownboard);
+    }
+
+    //Return to play screen
+    public void returnOnClick(View v) {
+        setContentView(R.layout.activity_player_two_play_screen);
     }
 
     public void doneOnClick(View v) {
