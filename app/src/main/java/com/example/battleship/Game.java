@@ -11,8 +11,8 @@ public class Game {
 
     public Game(String type){
         //this should ensure that players will no longer be null and put right player types.
-        Player player1 = new Player();
-        Player player2 = new Player();
+        Player player1 = new Person();
+        Player player2 = new Person();
         switch(type){
             case "PvP":
                 break;
@@ -42,25 +42,24 @@ public class Game {
     }
 
     private boolean checkForWin(){
-        int hitCounter = 0;
         int[][] winBoardCheck = new int[10][10];
         for (int row = 0; row < 10; row++) {
             for (int col = 0; col < 10; col++) {
-                //  winBoardCheck[row][col] = players[otherPlayer].getValue(row,col);
+             //   players[turn]
             }
         }
 
         for (int row = 0; row < 10; row++) {
             for (int col = 0; col < 10; col++) {
-                if(winBoardCheck[row][col] == 3){
-                    hitCounter++;
+                if(winBoardCheck[row][col] == 4){
+                   return false;
                 }
                 else{
 
                 }
             }
         }
-        return hitCounter == 17;
+        return true;
     }
 
 

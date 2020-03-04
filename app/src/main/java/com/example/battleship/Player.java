@@ -3,7 +3,7 @@ package com.example.battleship;
 public class Player {
 
     private String name;
-    protected Board board;
+    protected Board board = new Board();
 
     public Player() {
     }
@@ -41,7 +41,7 @@ public class Player {
 //        return String.format("Player: %s\r\nBoard: %s", this.getName(),this.getBoard().toString);
 //    }
 
-     protected boolean userPlacePiece(Ship s,String direction,int row,int col){
+     protected boolean userPlaceShip(Ship s, String direction, int row, int col){
         return false;
      }
 }

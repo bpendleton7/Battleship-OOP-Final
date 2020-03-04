@@ -51,7 +51,7 @@ public class PlayerOneSetShips extends AppCompatActivity implements View.OnClick
             try {
                 int shipSize = getShipSize(currentShip);
                 int counter = 0;
-                boolean placingShip = game.players[0].userPlacePiece(Ship.valueOf(
+                boolean placingShip = game.players[0].userPlaceShip(Ship.valueOf(
                         currentShip), direction, initialRow, initialCol);
                 if (!placingShip) {
                     if (direction.equals("down")) {
@@ -106,7 +106,7 @@ public class PlayerOneSetShips extends AppCompatActivity implements View.OnClick
                 listedShip.setText("Destroyer");
                 break;
             case "Destroyer":
-                listedShip.setText("All Ships Placed");
+                listedShip.setText("All Ships Place please hit done");
                 break;
         }
     }

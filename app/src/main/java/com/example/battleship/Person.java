@@ -9,7 +9,7 @@ public class Person extends Player {
     }
 
     @Override
-    protected boolean userPlacePiece(Ship s,String direction,int row,int col) {
+    protected boolean userPlaceShip(Ship s, String direction, int row, int col) {
         return board.placeShip(s,direction,row,col);
     }
     public void attack(int row,int col){

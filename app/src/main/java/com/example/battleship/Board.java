@@ -18,33 +18,17 @@ public class Board {
 
     public boolean placeShip(Ship ship,String direction,int row,int column){
         //get the size of the ship
-        int shipSize = 0;
-        int intDirection = 0;
-        switch(ship){
-            case Carrier:
-                shipSize = 5;
-                break;
-            case Battleship:
-                shipSize = 4;
-                break;
-            case Cruiser:
-            case Submarine:
-                shipSize = 3;
-                break;
-            case Destroyer:
-                shipSize = 2;
-                break;
-        }
+        int shipSize = getShipSize(ship);
+
         //Make sure they place it in a decent spot and no overlaps
         try {
             //check the direction they want to place the ship
-            if (direction.equals("up") || direction.equals("down")) {
-                intDirection = direction.equals("up") ? -1 : 1;
+            if (direction.equals("down")) {
                 //for loop to place ship while making sure it doesn't overlap
                 for (int i = 0; i < shipSize; i++) {
                     if (board[row][column] == 0){
                         board[row][column] = 4;
-                        column += intDirection;
+                        column ++;
                     }
                     else{
                         //if it over laps then the ship is not placed
@@ -53,12 +37,11 @@ public class Board {
                 }
             }
             //same as above just left and right
-            else if(direction.equals("right") || direction.equals("left")){
-                intDirection = direction.equals(("right")) ? 1 :-1;
+            else if(direction.equals("right")){
                 for (int i = 0; i<shipSize;i++){
                     if (board[row][column] == 0){
                         board[row][column] = 4;
-                        row += intDirection;
+                        row ++;
                     }
                     else{
                         //if it over laps then the ship is not placed
@@ -104,5 +87,20 @@ public class Board {
             return "AlreadyHit";
         }
         return board[row][col] == 4 ? "true":"false";
+    }
+
+    public int getShipSize(Ship ship){
+        switch(ship){
+            case Carrier:
+                return 5;
+            case Battleship:
+                return 4;
+            case Cruiser:
+            case Submarine:
+                return 3;
+            case Destroyer:
+                return 2;
+        }
+        return 0;
     }
 }

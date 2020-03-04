@@ -7,7 +7,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import static com.example.battleship.MainActivity.game;
@@ -52,7 +51,7 @@ public class PlayerTwoSetShips extends AppCompatActivity implements View.OnClick
             try {
                 int shipSize = getShipSize(currentShip);
                 int counter = 0;
-                boolean placingShip = game.players[0].userPlacePiece(Ship.valueOf(
+                boolean placingShip = game.players[0].userPlaceShip(Ship.valueOf(
                         currentShip), direction, initialRow, initialCol);
                 if (!placingShip) {
                     if (direction.equals("down")) {
