@@ -39,7 +39,7 @@ public class PlayerTwoSetShips extends AppCompatActivity implements View.OnClick
 
     @Override
     public void onClick(View v) {
-//        startActivity(new Intent(this,Pop.class));
+//      startActivity(new Intent(this,Pop.class));
         System.out.println(v.getTag());
         String[] id = v.getTag().toString().split("_");
         int initialRow = Integer.parseInt(id[0]);
@@ -132,24 +132,6 @@ public class PlayerTwoSetShips extends AppCompatActivity implements View.OnClick
         return shipSize;
     }
 
-    public void shipBasedOnClickCounter() {
-        if(clickCounter == 0) {
-            listedShip.setText("Carrier");
-        }
-        else if(clickCounter == 1) {
-            listedShip.setText("Battleship");
-        }
-        else if(clickCounter == 2) {
-            listedShip.setText("Cruiser");
-        }
-        else if(clickCounter == 3) {
-            listedShip.setText("Submarine");
-        }
-        else if(clickCounter == 4) {
-            listedShip.setText("Destroyer");
-        }
-    }
-
     public void doneOnClick(View v) {
         Intent intent = new Intent(this,Transition.class);
         startActivity(intent);
@@ -167,8 +149,6 @@ public class PlayerTwoSetShips extends AppCompatActivity implements View.OnClick
     public void rightOnClick(View v) {
         direction = "right";
     }
-
-
 
     public void resetOnClick(View v) {
         board.emptyBoard();
