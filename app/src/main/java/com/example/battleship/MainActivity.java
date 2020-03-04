@@ -19,8 +19,6 @@ public class MainActivity extends AppCompatActivity {
     private EditText p1Name, p2Name;
     static Game game;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
