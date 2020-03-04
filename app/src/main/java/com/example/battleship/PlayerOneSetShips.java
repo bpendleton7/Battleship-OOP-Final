@@ -44,7 +44,7 @@ public class PlayerOneSetShips extends AppCompatActivity implements View.OnClick
         int initialRow = Integer.parseInt(id[0]);
         int initialCol = Integer.parseInt(id[1]);
         String currentShip = listedShip.getText().toString();
-        if(currentShip.equals("All Ships Place please hit done")){
+        if(currentShip.equals("All Ships Placed")){
 
         }
         else{
@@ -106,7 +106,7 @@ public class PlayerOneSetShips extends AppCompatActivity implements View.OnClick
                 listedShip.setText("Destroyer");
                 break;
             case "Destroyer":
-                listedShip.setText("All Ships Place please hit done");
+                listedShip.setText("All Ships Placed");
                 break;
         }
     }
