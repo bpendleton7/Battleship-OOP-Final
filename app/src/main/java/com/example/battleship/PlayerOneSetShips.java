@@ -106,7 +106,7 @@ public class PlayerOneSetShips extends AppCompatActivity implements View.OnClick
                 listedShip.setText("Destroyer");
                 break;
             case "Destroyer":
-                listedShip.setText("All Ships Place please hit done");
+                listedShip.setText("All Ships Placed");
                 break;
         }
     }
