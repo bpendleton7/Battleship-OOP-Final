@@ -151,7 +151,8 @@ public class PlayerTwoSetShips extends AppCompatActivity implements View.OnClick
 
     public void resetOnClick(View v) {
         board.emptyBoard();
-        clickCounter = 0;
+        Intent intent = new Intent(this,PlayerTwoSetShips.class);
+        startActivity(intent);
     }
 
     public void initGuiComponents(){
