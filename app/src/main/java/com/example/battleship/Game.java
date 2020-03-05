@@ -62,26 +62,4 @@ public class Game {
         return true;
     }
 
-
-
-    //Attempting to update board class when user clicks button in the GUI
-    //Not sure if this would properly update both boards... ?
-    public void updatePlayerOneBoard(){
-        for(int row = 0; row < 10; row++){
-            for (int col = 0; col < 10; col++){
-
-                playerOneSetShips.board.board = board.board;
-                //playerOneSetShips.buttons = board.board;
-            }
-        }
-    }
-
-    public void updatePlayerTwoBoard(){
-        for(int row = 0; row < 10; row++){
-            for (int col = 0; col < 10; col++){
-                playerTwoSetShips.board.board = board.board;
-                //playerTwoSetShips.buttons= board.board;
-            }
-        }
-    }
 }
