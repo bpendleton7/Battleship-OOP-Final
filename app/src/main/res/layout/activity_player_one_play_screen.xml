@@ -13,7 +13,7 @@
         android:layout_height="150sp">
 
         <Button
-            android:id="@+id/button_view_own"
+            android:id="@+id/button_done"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="#03A9F4"
@@ -21,10 +21,10 @@
             android:text="View Own Board" />
 
         <Button
-            android:id="@+id/button_done"
+            android:id="@+id/button_down"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/button_view_own"
+            android:layout_below="@+id/button_done"
             android:layout_marginTop="10dp"
             android:backgroundTint="#03A9F4"
             android:onClick="doneOnClick"

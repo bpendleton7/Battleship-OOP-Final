@@ -17,6 +17,7 @@ public class PlayerTwoSetShips extends AppCompatActivity implements View.OnClick
     Board board = new Board();
     String direction = "right";
     private int clickCounter = 0;
+    private Button doneButton;
 
 
     @Override
@@ -25,6 +26,7 @@ public class PlayerTwoSetShips extends AppCompatActivity implements View.OnClick
         setContentView(R.layout.activity_player_two_set_ships);
         initGuiComponents();
         header.setText(game.players[1].getName() + ": set your ships");
+        doneButton.setEnabled(false);
 
         for(int row = 0; row < 10; row++) {
             for(int col = 0; col < 10; col++) {
@@ -107,6 +109,7 @@ public class PlayerTwoSetShips extends AppCompatActivity implements View.OnClick
                 break;
             case "Destroyer":
                 listedShip.setText("All Ships Placed");
+                doneButton.setEnabled(true);
                 break;
         }
     }
@@ -158,5 +161,6 @@ public class PlayerTwoSetShips extends AppCompatActivity implements View.OnClick
     public void initGuiComponents(){
         header = findViewById(R.id.txt_header);
         listedShip = findViewById(R.id.txt_ship);
+        doneButton = findViewById(R.id.button_done);
     }
 }
