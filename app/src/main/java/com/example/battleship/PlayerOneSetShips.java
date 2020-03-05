@@ -68,6 +68,7 @@ public class PlayerOneSetShips extends AppCompatActivity implements View.OnClick
                         }
                         for (int row = initialRow; row < initialRow + shipSize; row++) {
                             buttons[row][initialCol].setBackgroundColor(Color.GRAY);
+                            game.players[0].board.board[row][initialCol] = 4;
                             buttons[row][initialCol].setText(" ");
                         }
                     } else if (direction.equals("right")) {
@@ -81,6 +82,7 @@ public class PlayerOneSetShips extends AppCompatActivity implements View.OnClick
                         }
                         for (int col = initialCol; col < initialCol + shipSize; col++) {
                             buttons[initialRow][col].setBackgroundColor(Color.GRAY);
+                            game.players[0].board.board[initialRow][col] = 4;
                             buttons[initialRow][col].setText(" ");
                         }
                     }

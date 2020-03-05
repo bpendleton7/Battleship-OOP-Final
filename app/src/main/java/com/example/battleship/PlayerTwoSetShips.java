@@ -38,9 +38,9 @@ public class PlayerTwoSetShips extends AppCompatActivity implements View.OnClick
         }
     }
 
-    @Override
-    public void onClick(View v) {
-//      startActivity(new Intent(this,Pop.class));
+        @Override
+        public void onClick(View v) {
+//        startActivity(new Intent(this,Pop.class));
         System.out.println(v.getTag());
         String[] id = v.getTag().toString().split("_");
         int initialRow = Integer.parseInt(id[0]);
@@ -53,7 +53,7 @@ public class PlayerTwoSetShips extends AppCompatActivity implements View.OnClick
             try {
                 int shipSize = getShipSize(currentShip);
                 int counter = 0;
-                boolean placingShip = game.players[0].userPlaceShip(Ship.valueOf(
+                boolean placingShip = game.players[1].userPlaceShip(Ship.valueOf(
                         currentShip), direction, initialRow, initialCol);
                 if (!placingShip) {
                     if (direction.equals("down")) {
@@ -68,6 +68,7 @@ public class PlayerTwoSetShips extends AppCompatActivity implements View.OnClick
                         }
                         for (int row = initialRow; row < initialRow + shipSize; row++) {
                             buttons[row][initialCol].setBackgroundColor(Color.GRAY);
+                            game.players[1].board.board[row][initialCol] = 4;
                             buttons[row][initialCol].setText(" ");
                         }
                     } else if (direction.equals("right")) {
@@ -81,6 +82,7 @@ public class PlayerTwoSetShips extends AppCompatActivity implements View.OnClick
                         }
                         for (int col = initialCol; col < initialCol + shipSize; col++) {
                             buttons[initialRow][col].setBackgroundColor(Color.GRAY);
+                            game.players[1].board.board[initialRow][col] = 4;
                             buttons[initialRow][col].setText(" ");
                         }
                     }
