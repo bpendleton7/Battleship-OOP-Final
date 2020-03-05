@@ -19,9 +19,8 @@ public class PlayerTwoPlayScreen extends AppCompatActivity implements View.OnCli
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_player_two_play_screen);
-
         setUpButtonArray();
-        updateBoard();
+        updateBoard(0);
     }
 
     @Override
@@ -32,30 +31,41 @@ public class PlayerTwoPlayScreen extends AppCompatActivity implements View.OnCli
             int col = Integer.parseInt(strTag[1]);
             Player curPlayer = game.players[0];
             Board curBoard = curPlayer.getBoard();
+            curBoard.checkForHit(row,col);
             switch (curBoard.board[row][col]) {
-                case 0:
+                case 1:
                     ((Button) v).setBackgroundColor(Color.BLUE);
-                    curBoard.board[row][col] = 1;
                     break;
                 case 4:
                     ((Button) v).setBackgroundColor(Color.rgb(255,165,0));
-                    curBoard.board[row][col] = 2;
                     break;
             }
         }
         v.setClickable(false);
+        disableAllButtons();
     }
 
     //View own board with contentview
     public void viewPlayer2BoardOnClick(View v) {
         setContentView(R.layout.playertwoownboard);
+        setUpButtonArray();
+        disableAllButtons();
+        updateBoard(1);
+        Board pBoard = game.players[0].getBoard();
+        for (int row = 0; row < 10; row++) {
+            for (int col = 0; col < 10; col++) {
+                if (pBoard.board[row][col] == 4){
+                    buttons[row][col].setBackgroundColor(Color.GREEN);
+                }
+            }
+        }
     }
 
     //Return to play screen
     public void returnOnClick(View v) {
         setContentView(R.layout.activity_player_two_play_screen);
         setUpButtonArray();
-        updateBoard();
+        updateBoard(0);
     }
 
     public void doneOnClick(View v) {
@@ -63,8 +73,8 @@ public class PlayerTwoPlayScreen extends AppCompatActivity implements View.OnCli
         startActivity(intent);
     }
 
-    public void updateBoard(){
-        Player curPlayer = game.players[0];
+    public void updateBoard(int player){
+        Player curPlayer = game.players[player];
         Board board  = curPlayer.getBoard();
         for (int row = 0; row < 10; row++) {
             for (int col = 0; col < 10; col++) {
@@ -91,6 +101,14 @@ public class PlayerTwoPlayScreen extends AppCompatActivity implements View.OnCli
                 int resID = getResources().getIdentifier(buttonID, "id", getPackageName());
                 buttons[row][col] = findViewById(resID);
                 buttons[row][col].setOnClickListener(this);
+            }
+        }
+    }
+
+    public void disableAllButtons(){
+        for (int row = 0; row < 10; row++) {
+            for (int col = 0; col < 10; col++) {
+                buttons[row][col].setClickable(false);
             }
         }
     }

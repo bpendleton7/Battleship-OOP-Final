@@ -79,6 +79,7 @@ public class Board {
     public String checkForHit(int row, int col){
         if(board[row][col] == 4){
             board[row][col] = 2;
+
         }
         else if(board[row][col]==0){
             board[row][col] = 1;
@@ -103,4 +104,5 @@ public class Board {
         }
         return 0;
     }
+
 }
