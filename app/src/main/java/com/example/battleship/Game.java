@@ -62,4 +62,11 @@ public class Game {
         return true;
     }
 
+    public void switchTurns(){
+        turn = turn==0 ? 1:0;
+    }
+
+    public int getTurn(){
+        return turn;
+    }
 }

@@ -36,22 +36,22 @@ public class PlayerTwoPlayScreen extends AppCompatActivity implements View.OnCli
                 case 1:
                     ((Button) v).setBackgroundColor(Color.BLUE);
                     break;
-                case 4:
+                case 2:
                     ((Button) v).setBackgroundColor(Color.rgb(255,165,0));
                     break;
             }
         }
-        v.setClickable(false);
-        disableAllButtons();
+        v.setEnabled(false);
+        disableAllButtons(false);
     }
 
     //View own board with contentview
     public void viewPlayer2BoardOnClick(View v) {
         setContentView(R.layout.playertwoownboard);
         setUpButtonArray();
-        disableAllButtons();
+        disableAllButtons(false);
         updateBoard(1);
-        Board pBoard = game.players[0].getBoard();
+        Board pBoard = game.players[1].getBoard();
         for (int row = 0; row < 10; row++) {
             for (int col = 0; col < 10; col++) {
                 if (pBoard.board[row][col] == 4){
@@ -69,6 +69,7 @@ public class PlayerTwoPlayScreen extends AppCompatActivity implements View.OnCli
     }
 
     public void doneOnClick(View v) {
+        disableAllButtons(true);
         Intent intent = new Intent(this,Transition.class);
         startActivity(intent);
     }
@@ -105,10 +106,10 @@ public class PlayerTwoPlayScreen extends AppCompatActivity implements View.OnCli
         }
     }
 
-    public void disableAllButtons(){
+    public void disableAllButtons(boolean boo){
         for (int row = 0; row < 10; row++) {
             for (int col = 0; col < 10; col++) {
-                buttons[row][col].setClickable(false);
+                buttons[row][col].setClickable(boo);
             }
         }
     }

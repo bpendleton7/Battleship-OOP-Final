@@ -43,15 +43,15 @@ public class PlayerOnePlayScreen extends AppCompatActivity implements View.OnCli
                     break;
             }
         }
-       // v.;
-        disableAllButtons();
+        v.setEnabled(false);
+        disableAllButtons(false);
     }
 
     //View own board with contentview
     public void viewPlayer1BoardOnClick(View v) {
         setContentView(R.layout.playeroneownboard);
         setUpButtonArray();
-        disableAllButtons();
+        disableAllButtons(false);
         updateBoard(0);
         Board pBoard = game.players[0].getBoard();
         for (int row = 0; row < 10; row++) {
@@ -72,6 +72,7 @@ public class PlayerOnePlayScreen extends AppCompatActivity implements View.OnCli
     }
 
     public void doneOnClick(View v) {
+        disableAllButtons(true);
         Intent intent = new Intent(this,Transition.class);
         startActivity(intent);
     }
@@ -108,10 +109,10 @@ public class PlayerOnePlayScreen extends AppCompatActivity implements View.OnCli
         }
     }
 
-    public void disableAllButtons(){
+    public void disableAllButtons(boolean boo){
         for (int row = 0; row < 10; row++) {
             for (int col = 0; col < 10; col++) {
-                buttons[row][col].setClickable(false);
+                buttons[row][col].setClickable(boo);
             }
         }
     }
