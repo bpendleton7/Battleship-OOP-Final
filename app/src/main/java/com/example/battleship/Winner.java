@@ -19,7 +19,7 @@ public class Winner extends AppCompatActivity {
         setContentView(R.layout.activity_winner);
         TextView winner = findViewById(R.id.txt_winner);
         winner.setTextColor(Color.rgb(0, 152, 53));
-        winner.setText(game.players[game.getTurn()==0?1:1].getName() + " has Won");
+        winner.setText(game.players[game.getTurn()==0?1:0].getName() + " has Won");
     }
 
     public void onPlayAgain(View v){

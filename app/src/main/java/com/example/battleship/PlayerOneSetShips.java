@@ -139,9 +139,16 @@ public class PlayerOneSetShips extends AppCompatActivity implements View.OnClick
 
 
     public void doneOnClick(View v) {
-
-        Intent intent = new Intent(this,PlayerTwoSetShips.class);
-        startActivity(intent);
+        Intent intent;
+        if (game.players[1] instanceof Computer){
+            ((Computer)game.players[1]).placeShips();
+            intent = new Intent(this,Transition.class);
+            startActivity(intent);
+        }
+        else{
+            intent = new Intent(this,PlayerTwoSetShips.class);
+            startActivity(intent);
+        }
     }
 
     public void exitOnClick(View v) {

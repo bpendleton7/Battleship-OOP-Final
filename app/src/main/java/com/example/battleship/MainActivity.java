@@ -37,14 +37,16 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void personVsPersonOnClick(View v) {
-        game = new Game("PvP");
+        Game currentGame = new Game("PvP");
+        game = currentGame;
         setPlayerNames();
         Intent intent = new Intent(this,PlayerOneSetShips.class);
         startActivity(intent);
     }
 
     public void personVsComputerOnClick(View v) {
-        game = new Game("PvC");
+        Game currentGame = new Game("PvC");
+        game = currentGame;
         setPlayerNames();
         Intent intent = new Intent(this,PlayerOneSetShips.class);
         startActivity(intent);
