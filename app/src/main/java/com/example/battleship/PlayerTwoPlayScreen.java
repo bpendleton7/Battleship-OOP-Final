@@ -95,10 +95,7 @@ public class PlayerTwoPlayScreen extends AppCompatActivity implements View.OnCli
                         buttons[row][col].setBackgroundColor(Color.BLUE);
                         break;
                     case 2:
-                        buttons[row][col].setBackgroundColor(Color.rgb(255,165,0));
-                        break;
-                    case 3:
-                        buttons[row][col].setBackgroundColor(Color.rgb(195,0,22));
+                        buttons[row][col].setBackgroundColor(Color.RED);
                         break;
                 }
 
