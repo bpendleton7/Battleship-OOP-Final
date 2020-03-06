@@ -41,21 +41,15 @@ public class Game {
 
     }
 
-    private boolean checkForWin(){
-        int[][] winBoardCheck = new int[10][10];
-        for (int row = 0; row < 10; row++) {
-            for (int col = 0; col < 10; col++) {
-             //   players[turn]
-            }
-        }
-
+    public boolean checkForWin(){
+        Board bWinBoardCheck = players[turn].getBoard();
+        int[][] winBoardCheck = bWinBoardCheck.board;
         for (int row = 0; row < 10; row++) {
             for (int col = 0; col < 10; col++) {
                 if(winBoardCheck[row][col] == 4){
                    return false;
                 }
                 else{
-
                 }
             }
         }

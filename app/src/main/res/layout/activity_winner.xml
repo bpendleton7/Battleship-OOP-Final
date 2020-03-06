@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000000"
-    tools:context=".edu.neumont.csc150.c.battleship.Winner">
+    tools:context=".Winner">
 
     <TextView
         android:id="@+id/txt_winner"
@@ -25,6 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="188dp"
         android:backgroundTint="#03A9F4"
+        android:onClick="onPlayAgain"
         android:text="Play Again"
         android:textSize="36sp"
         android:textStyle="bold"

@@ -13,6 +13,7 @@ import static com.example.battleship.MainActivity.game;
 public class PlayerTwoPlayScreen extends AppCompatActivity implements View.OnClickListener{
 
     private Button[][] buttons = new Button[10][10];
+    private Button viewBoard;
 
 
     @Override
@@ -21,6 +22,7 @@ public class PlayerTwoPlayScreen extends AppCompatActivity implements View.OnCli
         setContentView(R.layout.activity_player_two_play_screen);
         setUpButtonArray();
         updateBoard(0);
+        viewBoard = findViewById(R.id.button_done);
     }
 
     @Override
@@ -43,6 +45,10 @@ public class PlayerTwoPlayScreen extends AppCompatActivity implements View.OnCli
         }
         v.setEnabled(false);
         disableAllButtons(false);
+        if(game.checkForWin()){
+            Intent intent = new Intent(this, Winner.class);
+            startActivity(intent);
+        }
     }
 
     //View own board with contentview
@@ -117,5 +123,6 @@ public class PlayerTwoPlayScreen extends AppCompatActivity implements View.OnCli
                 buttons[row][col].setClickable(boo);
             }
         }
+        viewBoard.setClickable(false);
     }
 }

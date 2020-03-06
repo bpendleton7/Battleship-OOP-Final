@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".edu.neumont.csc150.c.battleship.Winner"></activity>
+        <activity android:name=".Winner"></activity>
         <activity android:name=".Transition" />
         <activity android:name=".PlayerTwoPlayScreen" />
         <activity android:name=".PlayerOnePlayScreen" />
