@@ -17,10 +17,6 @@ public class Player {
         return name;
     }
 
-    public String takeTurn(int row,int col){
-        return board.checkForHit(row,col);
-    }
-
     public void setName(String name) {
         if(name == null || name.isEmpty()){
             throw new IllegalArgumentException("Invalid user name");
@@ -34,6 +30,10 @@ public class Player {
 
     public void setBoard(Board board) {
         this.board = board;
+    }
+
+    public String takeTurn(int row,int col){
+        return board.checkForHit(row,col);
     }
 
 //    @Override

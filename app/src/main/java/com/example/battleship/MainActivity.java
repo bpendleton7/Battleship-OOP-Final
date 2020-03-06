@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         initGuiComponents();
 
-        MediaPlayer mediaPlayer= MediaPlayer.create(MainActivity.this,R.raw.pirates);
+        MediaPlayer mediaPlayer = MediaPlayer.create(MainActivity.this,R.raw.lastmoh);
         mediaPlayer.start();
 
     }
