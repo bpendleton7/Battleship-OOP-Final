@@ -39,7 +39,7 @@ public class PlayerTwoPlayScreen extends AppCompatActivity implements View.OnCli
                     ((Button) v).setBackgroundColor(Color.BLUE);
                     break;
                 case 2:
-                    ((Button) v).setBackgroundColor(Color.rgb(255,165,0));
+                    ((Button) v).setBackgroundColor(Color.RED);
                     break;
             }
         }

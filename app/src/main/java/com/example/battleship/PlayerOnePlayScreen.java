@@ -39,7 +39,7 @@ public class PlayerOnePlayScreen extends AppCompatActivity implements View.OnCli
                     curBoard.board[row][col] = 1;
                     break;
                 case 2:
-                    ((Button) v).setBackgroundColor(Color.rgb(255,165,0));
+                    ((Button) v).setBackgroundColor(Color.RED);
                     curBoard.board[row][col] = 2;
                     break;
             }
