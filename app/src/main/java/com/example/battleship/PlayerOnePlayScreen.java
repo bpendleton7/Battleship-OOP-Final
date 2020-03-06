@@ -77,6 +77,11 @@ public class PlayerOnePlayScreen extends AppCompatActivity implements View.OnCli
         startActivity(intent);
     }
 
+    public void surrenderOnClick(View v) {
+        Intent intent = new Intent(this,MainActivity.class);
+        startActivity(intent);
+    }
+
     public void updateBoard(int player){
         Player curPlayer = game.players[player];
         Board board  = curPlayer.getBoard();
