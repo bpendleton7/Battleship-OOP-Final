@@ -9,13 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Winner"></activity>
-        <activity android:name=".Transition" />
-        <activity android:name=".PlayerTwoPlayScreen" />
-        <activity android:name=".PlayerOnePlayScreen" />
-        <activity android:name=".PlayerTwoSetShips" />
-        <activity android:name=".PlayerOneSetShips" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".view.Winner"></activity>
+        <activity android:name=".view.Transition" />
+        <activity android:name=".view.PlayerTwoPlayScreen" />
+        <activity android:name=".view.PlayerOnePlayScreen" />
+        <activity android:name=".view.PlayerTwoSetShips" />
+        <activity android:name=".view.PlayerOneSetShips" />
+        <activity android:name=".view.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

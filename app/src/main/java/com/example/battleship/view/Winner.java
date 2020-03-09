@@ -1,4 +1,4 @@
-package com.example.battleship;
+package com.example.battleship.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,7 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import static com.example.battleship.MainActivity.game;
+import com.example.battleship.R;
+
+import static com.example.battleship.view.MainActivity.game;
 
 /**This class is used to display the final winner.*/
 

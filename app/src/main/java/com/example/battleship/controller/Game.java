@@ -1,4 +1,9 @@
-package com.example.battleship;
+package com.example.battleship.controller;
+
+import com.example.battleship.view.Board;
+import com.example.battleship.model.Computer;
+import com.example.battleship.model.Person;
+import com.example.battleship.view.Player;
 
 public class Game {
     public Player[] players = new Player[2];

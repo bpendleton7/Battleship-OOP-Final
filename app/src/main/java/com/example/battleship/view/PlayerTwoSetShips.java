@@ -1,4 +1,4 @@
-package com.example.battleship;
+package com.example.battleship.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,26 +7,29 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.PopupMenu;
 import android.widget.TextView;
 
-import static com.example.battleship.MainActivity.game;
+import com.example.battleship.R;
+import com.example.battleship.model.Ship;
 
-public class PlayerOneSetShips extends AppCompatActivity implements View.OnClickListener{
+import static com.example.battleship.view.MainActivity.game;
+
+public class PlayerTwoSetShips extends AppCompatActivity implements View.OnClickListener{
     private TextView header, listedShip;
     private Button[][] buttons = new Button[10][10];
     Board board = new Board();
     String direction = "right";
     private Button doneButton;
 
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_player_one_set_ships);
+        setContentView(R.layout.activity_player_two_set_ships);
         initGuiComponents();
-        header.setText(game.players[0].getName() + ": set your ships");
+        header.setText(game.players[1].getName() + ": set your ships");
         doneButton.setEnabled(false);
+
         for(int row = 0; row < 10; row++) {
             for(int col = 0; col < 10; col++) {
                 String buttonID = "button_" + row + col;
@@ -37,37 +40,41 @@ public class PlayerOneSetShips extends AppCompatActivity implements View.OnClick
         }
     }
 
-    @Override
-    public void onClick(View v) {
+        @Override
+        public void onClick(View v) {
         System.out.println(v.getTag());
         String[] id = v.getTag().toString().split("_");
         int initialRow = Integer.parseInt(id[0]);
         int initialCol = Integer.parseInt(id[1]);
         String currentShip = listedShip.getText().toString();
         if(currentShip.equals("All Ships Placed")){
+
         }
         else{
             try {
                 int shipSize = getShipSize(currentShip);
-                boolean placingShip = game.players[0].userPlaceShip(Ship.valueOf(
+                boolean placingShip = game.players[1].userPlaceShip(Ship.valueOf(
                         currentShip), direction, initialRow, initialCol);
                 if (!placingShip) {
                     if (direction.equals("down")) {
                         for (int row = initialRow; row < initialRow + shipSize; row++) {
                             if (buttons[row][initialCol].getText().toString().equals("")) {
+
                             }
                             else{
                                 throw new ArrayIndexOutOfBoundsException();
                             }
+
                         }
                         for (int row = initialRow; row < initialRow + shipSize; row++) {
                             buttons[row][initialCol].setBackgroundColor(Color.GRAY);
-                            game.players[0].board.board[row][initialCol] = 4;
+                            game.players[1].board.board[row][initialCol] = 4;
                             buttons[row][initialCol].setText(" ");
                         }
                     } else if (direction.equals("right")) {
                         for (int col = initialCol; col < initialCol + shipSize; col++) {
                             if (buttons[initialRow][col].getText().toString().equals("")) {
+
                             }
                             else{
                                 throw new ArrayIndexOutOfBoundsException();
@@ -75,7 +82,7 @@ public class PlayerOneSetShips extends AppCompatActivity implements View.OnClick
                         }
                         for (int col = initialCol; col < initialCol + shipSize; col++) {
                             buttons[initialRow][col].setBackgroundColor(Color.GRAY);
-                            game.players[0].board.board[initialRow][col] = 4;
+                            game.players[1].board.board[initialRow][col] = 4;
                             buttons[initialRow][col].setText(" ");
                         }
                     }
@@ -83,6 +90,7 @@ public class PlayerOneSetShips extends AppCompatActivity implements View.OnClick
                 }
             }
             catch (ArrayIndexOutOfBoundsException ex){
+
             }
         }
     }
@@ -128,19 +136,9 @@ public class PlayerOneSetShips extends AppCompatActivity implements View.OnClick
         return shipSize;
     }
 
-
-
     public void doneOnClick(View v) {
-        Intent intent;
-        if (game.players[1] instanceof Computer){
-            ((Computer)game.players[1]).placeShips();
-            intent = new Intent(this,Transition.class);
-            startActivity(intent);
-        }
-        else{
-            intent = new Intent(this,PlayerTwoSetShips.class);
-            startActivity(intent);
-        }
+        Intent intent = new Intent(this,Transition.class);
+        startActivity(intent);
     }
 
     public void exitOnClick(View v) {
@@ -149,7 +147,7 @@ public class PlayerOneSetShips extends AppCompatActivity implements View.OnClick
     }
 
     public void downOnClick(View v) {
-       direction = "down";
+        direction = "down";
     }
 
     public void rightOnClick(View v) {
@@ -158,7 +156,7 @@ public class PlayerOneSetShips extends AppCompatActivity implements View.OnClick
 
     public void resetOnClick(View v) {
         board.emptyBoard();
-        Intent intent = new Intent(this,PlayerOneSetShips.class);
+        Intent intent = new Intent(this,PlayerTwoSetShips.class);
         startActivity(intent);
     }
 

@@ -1,4 +1,7 @@
-package com.example.battleship;
+package com.example.battleship.model;
+
+import com.example.battleship.view.Player;
+import com.example.battleship.view.Board;
 
 import java.util.Random;
 

@@ -1,4 +1,4 @@
-package com.example.battleship;
+package com.example.battleship.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
@@ -6,6 +6,9 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+
+import com.example.battleship.R;
+import com.example.battleship.controller.Game;
 
 public class MainActivity extends AppCompatActivity {
 
