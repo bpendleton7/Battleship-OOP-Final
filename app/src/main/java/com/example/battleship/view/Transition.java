@@ -1,4 +1,4 @@
-package com.example.battleship;
+package com.example.battleship.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import static com.example.battleship.MainActivity.game;
+import com.example.battleship.R;
+
+import static com.example.battleship.view.MainActivity.game;
 
 /**This class is used to improve user experience by not being able to see enemy board.*/
 

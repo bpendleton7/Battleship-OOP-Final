@@ -1,7 +1,9 @@
-package com.example.battleship;
+package com.example.battleship.view;
+
+import com.example.battleship.model.Ship;
 
 public class Board {
-    int[][] board = new int[][]{
+    public int[][] board = new int[][]{
             {0,0,0,0,0,0,0,0,0,0},
             {0,0,0,0,0,0,0,0,0,0},
             {0,0,0,0,0,0,0,0,0,0},
@@ -22,7 +24,7 @@ public class Board {
      * It also has the option to choose the direction of down or right.
      */
 
-    public boolean placeShip(Ship ship,String direction,int row,int column){
+    public boolean placeShip(Ship ship, String direction, int row, int column){
         int shipSize = getShipSize(ship);
         try {
             if (direction.equals("down")) {

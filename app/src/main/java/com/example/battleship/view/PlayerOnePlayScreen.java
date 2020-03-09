@@ -1,29 +1,31 @@
-package com.example.battleship;
+package com.example.battleship.view;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import static com.example.battleship.MainActivity.game;
+import com.example.battleship.R;
+import com.example.battleship.model.Computer;
 
-public class PlayerTwoPlayScreen extends AppCompatActivity implements View.OnClickListener{
+import static com.example.battleship.view.MainActivity.game;
+
+public class PlayerOnePlayScreen extends AppCompatActivity implements View.OnClickListener{
 
     private Button[][] buttons = new Button[10][10];
     private Button viewBoard;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_player_two_play_screen);
+        setContentView(R.layout.activity_player_one_play_screen);
         setUpButtonArray();
-        updateBoard(0);
+        updateBoard(1);
         viewBoard = findViewById(R.id.button_done);
     }
+
     /**OnClick on this page will be in charge of being user friendly by showing different colors of
      * hit or miss using red or blue colors.*/
 
@@ -33,15 +35,17 @@ public class PlayerTwoPlayScreen extends AppCompatActivity implements View.OnCli
             String[] strTag = v.getTag().toString().split("_");
             int row = Integer.parseInt(strTag[0]);
             int col = Integer.parseInt(strTag[1]);
-            Player curPlayer = game.players[0];
+            Player curPlayer = game.players[1];
             Board curBoard = curPlayer.getBoard();
             curBoard.checkForHit(row,col);
             switch (curBoard.board[row][col]) {
                 case 1:
                     ((Button) v).setBackgroundColor(Color.BLUE);
+                    curBoard.board[row][col] = 1;
                     break;
                 case 2:
                     ((Button) v).setBackgroundColor(Color.RED);
+                    curBoard.board[row][col] = 2;
                     break;
             }
         }
@@ -53,17 +57,17 @@ public class PlayerTwoPlayScreen extends AppCompatActivity implements View.OnCli
         }
     }
 
-    /**viewPlayer2BoardOnClick will update the board and showing their own board with battleship progress.
+    /**viewPlayer1BoardOnClick will update the board and showing their own board with battleship progress.
      * returnOnClick will allow the user to return to the play screen and continue the battle.
      * doneOnClick will finish the players turn
      * and surrenderOnClick will end the game.*/
 
-    public void viewPlayer2BoardOnClick(View v) {
-        setContentView(R.layout.playertwoownboard);
+    public void viewPlayer1BoardOnClick(View v) {
+        setContentView(R.layout.playeroneownboard);
         setUpButtonArray();
         disableAllButtons(false);
-        updateBoard(1);
-        Board pBoard = game.players[1].getBoard();
+        updateBoard(0);
+        Board pBoard = game.players[0].getBoard();
         for (int row = 0; row < 10; row++) {
             for (int col = 0; col < 10; col++) {
                 if (pBoard.board[row][col] == 4){
@@ -74,13 +78,18 @@ public class PlayerTwoPlayScreen extends AppCompatActivity implements View.OnCli
     }
 
     public void returnOnClick(View v) {
-        setContentView(R.layout.activity_player_two_play_screen);
+        setContentView(R.layout.activity_player_one_play_screen);
         setUpButtonArray();
-        updateBoard(0);
+        updateBoard(1);
+
     }
 
     public void doneOnClick(View v) {
         disableAllButtons(true);
+        if (game.players[1] instanceof Computer){
+            game.players[0].cpuAttack();
+            game.switchTurns();
+        }
         Intent intent = new Intent(this,Transition.class);
         startActivity(intent);
     }
