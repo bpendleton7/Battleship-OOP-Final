@@ -18,7 +18,7 @@ public class Winner extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_winner);
         TextView winner = findViewById(R.id.txt_winner);
-        winner.setTextColor(Color.rgb(0, 152, 53));
+        winner.setTextColor(Color.rgb(255, 255, 255));
         winner.setText(game.players[game.getTurn()==0?1:0].getName() + " has Won");
     }
 
