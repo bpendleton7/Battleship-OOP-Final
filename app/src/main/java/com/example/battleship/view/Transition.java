@@ -2,6 +2,7 @@ package com.example.battleship.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -38,12 +39,16 @@ public class Transition extends AppCompatActivity {
     }
 
     public void playerOneOnClick(View v) {
+        MediaPlayer mediaPlayer = MediaPlayer.create(this,R.raw.sonar);
+        mediaPlayer.start();
         switchTurns();
         Intent intent = new Intent(this,PlayerOnePlayScreen.class);
         startActivity(intent);
     }
 
     public void playerTwoOnClick(View v) {
+        MediaPlayer mediaPlayer = MediaPlayer.create(this,R.raw.sonar);
+        mediaPlayer.start();
         switchTurns();
         Intent intent = new Intent(this,PlayerTwoPlayScreen.class);
         startActivity(intent);

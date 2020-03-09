@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -137,24 +138,34 @@ public class PlayerTwoSetShips extends AppCompatActivity implements View.OnClick
     }
 
     public void doneOnClick(View v) {
+        MediaPlayer mediaPlayer = MediaPlayer.create(this,R.raw.sonar);
+        mediaPlayer.start();
         Intent intent = new Intent(this,Transition.class);
         startActivity(intent);
     }
 
     public void exitOnClick(View v) {
+        MediaPlayer mediaPlayer = MediaPlayer.create(this,R.raw.sonar);
+        mediaPlayer.start();
         Intent intent = new Intent(this,MainActivity.class);
         startActivity(intent);
     }
 
     public void downOnClick(View v) {
+        MediaPlayer mediaPlayer = MediaPlayer.create(this,R.raw.sonar);
+        mediaPlayer.start();
         direction = "down";
     }
 
     public void rightOnClick(View v) {
+        MediaPlayer mediaPlayer = MediaPlayer.create(this,R.raw.sonar);
+        mediaPlayer.start();
         direction = "right";
     }
 
     public void resetOnClick(View v) {
+        MediaPlayer mediaPlayer = MediaPlayer.create(this,R.raw.sonar);
+        mediaPlayer.start();
         board.emptyBoard();
         Intent intent = new Intent(this,PlayerTwoSetShips.class);
         startActivity(intent);

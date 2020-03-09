@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initGuiComponents();
-        MediaPlayer mediaPlayer = MediaPlayer.create(MainActivity.this,R.raw.lastmoh);
+        MediaPlayer mediaPlayer = MediaPlayer.create(MainActivity.this,R.raw.lastmohigans);
         mediaPlayer.start();
     }
 

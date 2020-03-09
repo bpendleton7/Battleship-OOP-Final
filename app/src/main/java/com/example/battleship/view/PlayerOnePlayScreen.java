@@ -3,6 +3,7 @@ package com.example.battleship.view;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -63,6 +64,8 @@ public class PlayerOnePlayScreen extends AppCompatActivity implements View.OnCli
      * and surrenderOnClick will end the game.*/
 
     public void viewPlayer1BoardOnClick(View v) {
+        MediaPlayer mediaPlayer = MediaPlayer.create(this,R.raw.sonar);
+        mediaPlayer.start();
         setContentView(R.layout.playeroneownboard);
         setUpButtonArray();
         disableAllButtons(false);
@@ -78,6 +81,8 @@ public class PlayerOnePlayScreen extends AppCompatActivity implements View.OnCli
     }
 
     public void returnOnClick(View v) {
+        MediaPlayer mediaPlayer = MediaPlayer.create(this,R.raw.sonar);
+        mediaPlayer.start();
         setContentView(R.layout.activity_player_one_play_screen);
         setUpButtonArray();
         updateBoard(1);
@@ -85,6 +90,8 @@ public class PlayerOnePlayScreen extends AppCompatActivity implements View.OnCli
     }
 
     public void doneOnClick(View v) {
+        MediaPlayer mediaPlayer = MediaPlayer.create(this,R.raw.sonar);
+        mediaPlayer.start();
         disableAllButtons(true);
         if (game.players[1] instanceof Computer){
             game.players[0].cpuAttack();
@@ -95,6 +102,8 @@ public class PlayerOnePlayScreen extends AppCompatActivity implements View.OnCli
     }
 
     public void surrenderOnClick(View v) {
+        MediaPlayer mediaPlayer = MediaPlayer.create(this,R.raw.bomb);
+        mediaPlayer.start();
         Intent intent = new Intent(this,MainActivity.class);
         startActivity(intent);
     }

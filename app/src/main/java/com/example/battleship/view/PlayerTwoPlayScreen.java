@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -61,6 +62,8 @@ public class PlayerTwoPlayScreen extends AppCompatActivity implements View.OnCli
      * and surrenderOnClick will end the game.*/
 
     public void viewPlayer2BoardOnClick(View v) {
+        MediaPlayer mediaPlayer = MediaPlayer.create(this,R.raw.sonar);
+        mediaPlayer.start();
         setContentView(R.layout.playertwoownboard);
         setUpButtonArray();
         disableAllButtons(false);
@@ -76,18 +79,24 @@ public class PlayerTwoPlayScreen extends AppCompatActivity implements View.OnCli
     }
 
     public void returnOnClick(View v) {
+        MediaPlayer mediaPlayer = MediaPlayer.create(this,R.raw.sonar);
+        mediaPlayer.start();
         setContentView(R.layout.activity_player_two_play_screen);
         setUpButtonArray();
         updateBoard(0);
     }
 
     public void doneOnClick(View v) {
+        MediaPlayer mediaPlayer = MediaPlayer.create(this,R.raw.sonar);
+        mediaPlayer.start();
         disableAllButtons(true);
         Intent intent = new Intent(this,Transition.class);
         startActivity(intent);
     }
 
     public void surrenderOnClick(View v) {
+        MediaPlayer mediaPlayer = MediaPlayer.create(this,R.raw.bomb);
+        mediaPlayer.start();
         Intent intent = new Intent(this,MainActivity.class);
         startActivity(intent);
     }
