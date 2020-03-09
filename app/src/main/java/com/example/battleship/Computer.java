@@ -5,10 +5,12 @@ import java.util.Random;
 public class Computer extends Player {
 
     private Random gen = new Random();
+    //boolean to determine random or
     private boolean lastAttackHit = false;
     private int col = 0;
     private int row = 0;
     private int tries = 0;
+
 
     public Computer() {
     }
@@ -17,18 +19,14 @@ public class Computer extends Player {
         super(name, board);
     }
 
-    /**
-     * This method goes through each of the enum ships and prompts the user to place the ship
-     * It will go through a while until user has placed ship. And with the additional helper method
-     * we can guide the user to place the entire ship properly.
-     */
-
     public void placeShips(){
+        //Booleans ensure that the ship is placed;
         boolean placeCarrier = false;
         boolean placeBattleship = false;
         boolean placeCruiser = false;
         boolean placeSub = false;
         boolean placeDestroyer = false;
+        //The while loops check to see if it is placed and if not selects a direction and calls the helper method.
         while(!placeCarrier){
             String direction = gen.nextInt(2) == 0 ? "down" : "right";
             placeCarrier = placeShipsHelper(Ship.Carrier, direction);
@@ -52,11 +50,14 @@ public class Computer extends Player {
     }
 
     private boolean placeShipsHelper(Ship ship,String direction){
+        //Generates a row and column and then calls the board place method.
         return board.placeShip(ship,direction,gen.nextInt(10),gen.nextInt(10));
     }
 
     public void cpuAttack(){
         if(lastAttackHit){
+            //switch statement circles around last hit to see which way to continue attacking
+            //tries just determines which way to attack
             switch (tries){
                 case 0:
                     tries++;
@@ -93,11 +94,14 @@ public class Computer extends Player {
             }
         }
         else{
+            //if there wasn't a previous hit or no longer a good hit next to it then generate new space;
+            //0's are place holders as they will be random in the next method
             determineIfHit(0,0);
         }
     }
 
     public boolean determineIfHit(int col,int row){
+        //makes sure the cpu doesn't attack the same spot twice.
         boolean attacked = false;
         String tempHolder = "";
         while (!attacked){
