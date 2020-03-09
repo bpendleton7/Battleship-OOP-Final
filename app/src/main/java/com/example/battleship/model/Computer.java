@@ -54,7 +54,50 @@ public class Computer extends Player {
 
     private boolean placeShipsHelper(Ship ship,String direction){
         //Generates a row and column and then calls the board place method.
-        return board.placeShip(ship,direction,gen.nextInt(10),gen.nextInt(10));
+        int carrierSize = 5;
+        int battleShipSize = 4;
+        int cruiserSize = 3;
+        int subSize = 3;
+        int destroyerSize = 2;
+        //Generates a row and column and then calls the board place method.
+        switch (ship){
+            case Carrier:
+                switch (direction){
+                    case "right":
+                        return board.placeShip(ship,direction,gen.nextInt(10-carrierSize),gen.nextInt(10));
+                    case "down":
+                        return board.placeShip(ship,direction,gen.nextInt(10),gen.nextInt(10-carrierSize));
+                }
+            case Battleship:
+                switch (direction){
+                    case "right":
+                        return board.placeShip(ship,direction,gen.nextInt(10-battleShipSize),gen.nextInt(10));
+                    case "down":
+                        return board.placeShip(ship,direction,gen.nextInt(10),gen.nextInt(10-battleShipSize));
+                }
+            case Cruiser:
+                switch (direction){
+                    case "right":
+                        return board.placeShip(ship,direction,gen.nextInt(10-cruiserSize),gen.nextInt(10));
+                    case "down":
+                        return board.placeShip(ship,direction,gen.nextInt(10),gen.nextInt(10-cruiserSize));
+                }
+            case Submarine:
+                switch (direction){
+                    case "right":
+                        return board.placeShip(ship,direction,gen.nextInt(10-subSize),gen.nextInt(10));
+                    case "down":
+                        return board.placeShip(ship,direction,gen.nextInt(10),gen.nextInt(10-subSize));
+                }
+            case Destroyer:
+                switch (direction){
+                    case "right":
+                        return board.placeShip(ship,direction,gen.nextInt(10-destroyerSize),gen.nextInt(10));
+                    case "down":
+                        return board.placeShip(ship,direction,gen.nextInt(10),gen.nextInt(10-destroyerSize));
+                }
+        }
+        return false;
     }
 
     public void cpuAttack(){
