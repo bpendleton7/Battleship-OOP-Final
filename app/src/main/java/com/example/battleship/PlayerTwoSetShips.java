@@ -16,7 +16,6 @@ public class PlayerTwoSetShips extends AppCompatActivity implements View.OnClick
     private Button[][] buttons = new Button[10][10];
     Board board = new Board();
     String direction = "right";
-    private int clickCounter = 0;
     private Button doneButton;
 
 
@@ -40,7 +39,6 @@ public class PlayerTwoSetShips extends AppCompatActivity implements View.OnClick
 
         @Override
         public void onClick(View v) {
-//        startActivity(new Intent(this,Pop.class));
         System.out.println(v.getTag());
         String[] id = v.getTag().toString().split("_");
         int initialRow = Integer.parseInt(id[0]);
@@ -52,7 +50,6 @@ public class PlayerTwoSetShips extends AppCompatActivity implements View.OnClick
         else{
             try {
                 int shipSize = getShipSize(currentShip);
-                int counter = 0;
                 boolean placingShip = game.players[1].userPlaceShip(Ship.valueOf(
                         currentShip), direction, initialRow, initialCol);
                 if (!placingShip) {

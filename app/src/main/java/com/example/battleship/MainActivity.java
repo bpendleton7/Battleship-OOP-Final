@@ -1,33 +1,26 @@
 package com.example.battleship;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
-import android.content.res.AssetFileDescriptor;
-import android.content.res.AssetManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
 
     private EditText p1Name, p2Name;
     static Game game;
 
+    /**Main Activity onCreate has a feature for audio that was added.*/
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initGuiComponents();
-
         MediaPlayer mediaPlayer = MediaPlayer.create(MainActivity.this,R.raw.lastmoh);
         mediaPlayer.start();
-
     }
 
     public void initGuiComponents(){
@@ -35,6 +28,9 @@ public class MainActivity extends AppCompatActivity {
         p2Name = findViewById(R.id.txt_player2);
     }
 
+    /**The next two methods are onClick to take to set ships pages for PVP or PVC
+     * Set player names will reassure that each player has a name throughout the game.
+     * Which in end result will show the player name of the winner.*/
 
     public void personVsPersonOnClick(View v) {
         Game currentGame = new Game("PvP");
@@ -50,16 +46,6 @@ public class MainActivity extends AppCompatActivity {
         setPlayerNames();
         Intent intent = new Intent(this,PlayerOneSetShips.class);
         startActivity(intent);
-    }
-
-    public void computerVsComputerOnClick(View v) {
-        //Initializing the game variable at the top of each on click to determine which player type
-        // to add to the list to avoid the null issue;
-        game = new Game("CvC");
-        setPlayerNames();
-        Intent intent = new Intent(this,PlayerOnePlayScreen.class);
-        startActivity(intent);
-
     }
 
     public void setPlayerNames(){

@@ -24,6 +24,8 @@ public class PlayerTwoPlayScreen extends AppCompatActivity implements View.OnCli
         updateBoard(0);
         viewBoard = findViewById(R.id.button_done);
     }
+    /**OnClick on this page will be in charge of being user friendly by showing different colors of
+     * hit or miss using red or blue colors.*/
 
     @Override
     public void onClick(View v) {
@@ -51,7 +53,11 @@ public class PlayerTwoPlayScreen extends AppCompatActivity implements View.OnCli
         }
     }
 
-    //View own board with contentview
+    /**viewPlayer2BoardOnClick will update the board and showing their own board with battleship progress.
+     * returnOnClick will allow the user to return to the play screen and continue the battle.
+     * doneOnClick will finish the players turn
+     * and surrenderOnClick will end the game.*/
+
     public void viewPlayer2BoardOnClick(View v) {
         setContentView(R.layout.playertwoownboard);
         setUpButtonArray();
@@ -67,7 +73,6 @@ public class PlayerTwoPlayScreen extends AppCompatActivity implements View.OnCli
         }
     }
 
-    //Return to play screen
     public void returnOnClick(View v) {
         setContentView(R.layout.activity_player_two_play_screen);
         setUpButtonArray();

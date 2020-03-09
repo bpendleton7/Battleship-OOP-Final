@@ -7,9 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.example.battleship.R;
-
 import static com.example.battleship.MainActivity.game;
+
+/**This class is used to display the final winner.*/
 
 public class Winner extends AppCompatActivity {
 

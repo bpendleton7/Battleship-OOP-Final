@@ -6,6 +6,11 @@ public class Player {
 
     private String name;
     protected Board board = new Board();
+    private boolean lastAttackHit = false;
+    private int col = 0;
+    private int row = 0;
+    private int tries = 0;
+    private Random gen = new Random();
 
     public Player() {
     }
@@ -38,16 +43,13 @@ public class Player {
         return board.checkForHit(row,col);
     }
 
-    private boolean lastAttackHit = false;
-    private int col = 0;
-    private int row = 0;
-    private int tries = 0;
-    private Random gen = new Random();
+    /**
+     * CPU's attack will check for hit and if so will attempt to attack in the proper direction
+     * to sink ship. And determineIfHit method will reassure CPU does not attack same spot twice.
+     */
 
     public void cpuAttack(){
         if(lastAttackHit){
-            //switch statement circles around last hit to see which way to continue attacking
-            //tries just determines which way to attack
             switch (tries){
                 case 0:
                     tries++;
@@ -84,14 +86,12 @@ public class Player {
             }
         }
         else{
-            //if there wasn't a previous hit or no longer a good hit next to it then generate new space;
-            //0's are place holders as they will be random in the next method
             determineIfHit(0,0);
         }
     }
 
     public boolean determineIfHit(int col,int row){
-        //makes sure the cpu doesn't attack the same spot twice.
+
         boolean attacked = false;
         String tempHolder = "";
         while (!attacked){
