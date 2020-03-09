@@ -82,7 +82,7 @@ public class Person extends Player {
                 col = gen.nextInt(10);
                 row = gen.nextInt(10);
                 tempHolder = takeTurn(row,col);
-
+                attacked = !tempHolder.equals("AlreadyHit");
             }
 
         }

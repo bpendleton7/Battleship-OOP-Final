@@ -78,16 +78,17 @@ public class PlayerOnePlayScreen extends AppCompatActivity implements View.OnCli
 
     public void doneOnClick(View v) {
         disableAllButtons(true);
-        Intent intent = new Intent(this,Transition.class);
-        startActivity(intent);
+
         if (game.players[1] instanceof Computer){
-            intent = new Intent(this,PlayerTwoPlayScreen.class);
-            startActivity(intent);
+            //intent = new Intent(this,PlayerTwoPlayScreen.class);
+            //startActivity(intent);
             game.players[0].cpuAttack();
             game.switchTurns();
-            intent = new Intent(this,Transition.class);
-            startActivity(intent);
+            //intent = new Intent(this,Transition.class);
+            //startActivity(intent);
         }
+        Intent intent = new Intent(this,Transition.class);
+        startActivity(intent);
     }
 
     public void surrenderOnClick(View v) {
